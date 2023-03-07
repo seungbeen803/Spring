@@ -23,11 +23,15 @@ public class DemoApplication {
 		// 1. 이름으로 꺼내는 작업
 		MyBean myBean = (MyBean) context.getBean("myBean");
 //		Person person = (Person) context.getBean("person");
+		var person = (Person) context.getBean("helloMyPerson");
 		System.out.println(myBean);
 		
 		// 2. 클래스로 꺼내는 작업
-		Person person = (Person) context.getBean(Person.class);
+//		Person person = (Person) context.getBean(Person.class);
 		System.out.println(person);
+
+		var calculatorService = (MyCalculatorService) context.getBean(MyCalculatorService.class);
+		calculatorService.calcAdd(5, 3);
 	}
 
 }
