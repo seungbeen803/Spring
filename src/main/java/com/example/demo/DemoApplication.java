@@ -23,8 +23,12 @@ public class DemoApplication {
 		// 1. 이름으로 꺼내는 작업
 		MyBean myBean = (MyBean) context.getBean("myBean");
 //		Person person = (Person) context.getBean("person");
+		MyBean myBean1 = (MyBean) context.getBean("myBean");
+		MyBean myBean2 = (MyBean) context.getBean("myBean");
+		System.out.println(myBean1 == myBean2); // myBean1과 myBean2는 다른 객체가 아니라 주소가 같은 완전히 똑같은 객체이다.
+
 		var person = (Person) context.getBean("helloMyPerson");
-		System.out.println(myBean);
+
 		
 		// 2. 클래스로 꺼내는 작업
 //		Person person = (Person) context.getBean(Person.class);
@@ -32,6 +36,9 @@ public class DemoApplication {
 
 		var calculatorService = (MyCalculatorService) context.getBean(MyCalculatorService.class);
 		calculatorService.calcAdd(5, 3);
+
+		GreetingService greetingService = (GreetingService) context.getBean(GreetingService.class);
+		greetingService.greet();
 	}
 
 }
